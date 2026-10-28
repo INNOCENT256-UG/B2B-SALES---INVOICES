@@ -95,7 +95,7 @@ Gross profit is not the same as net profit. The dataset may not include operatin
 
 ## Data and privacy
 
-The dashboard embeds its data in `index.html` so it can run as a standalone prototype. Before publishing this repository publicly, confirm that the records are approved for public sharing. If the data is client-owned, confidential, or contains identifiable customer information, replace it with anonymized or synthetic sample data before making the repository public.
+The dashboard embeds its data in [REPORTS][REPORTS/index.html]` so it can run as a standalone prototype. Before publishing this repository publicly, confirm that the records are approved for public sharing. If the data is client-owned, confidential, or contains identifiable customer information, replace it with anonymized or synthetic sample data before making the repository public.
 
 The dashboard does not connect to a live database or automatically refresh from a source system.
 
