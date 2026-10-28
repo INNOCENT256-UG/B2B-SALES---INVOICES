@@ -4,6 +4,38 @@
 
 This project turns invoice-line data into a business-facing dashboard. It is designed to help users explore sales performance, understand gross profitability, compare customer and product contributions, and review shipping duration.
 
+## Architecture
+Single file, split into marked layers:
+- **Data**: `D`, the cleaned CSV, dictionary-encoded (customers/products/dates stored once, rows reference them by index). Nothing was altered or invented.
+- **Logic** (`//<LOGIC>` block): `filterRows`, `agg` (all KPI math in one place), `groupBy`, `lag`, `weekKey`. Pages never re-implement metrics.
+- **Presentation**: one function per page (`ov`, `sales`, `cust`, `prod`, `ship`), a generic `table()` (search + sort) and `mk()` for charts.
+
+Deviation from the brief: the requested React/TypeScript/Tailwind project isn't built here; this environment publishes a self-contained page. The layering above maps directly onto a React port (`logic` → `lib/metrics.ts`, page functions → components).
+
+## Data assessment
+- 8,000 rows × 15 columns; no nulls, no duplicate rows, no duplicate (invoice, product) pairs.
+- **Unit of observation = invoice line.** 584 distinct invoices (avg 13.7 lines). Each invoice has exactly one customer, order date and ship date, so invoice-level metrics are safe. invoice_no 139 is absent (gap in numbering, not investigated further).
+- `revenue = quantity × unit_price`, `cost = quantity × unit_cost`, `margin = revenue − cost` (all verified to rounding). So margin **is** gross profit: $1,199,078.37 on $4,122,067.37 revenue (29.09%). All margins are positive.
+- Order dates: 2026-07-30 → 2026-08-19 (15 order days, weekdays only). Ship dates run to 2026-09-03. No ship date precedes its order date.
+
+## KPI definitions
+Revenue = Σ revenue. Cost = Σ cost. Gross Profit = Revenue − Cost. Gross Margin % = GP ÷ Revenue × 100 (shown "–" if revenue is 0). Invoices/Customers/Products = distinct invoice_no / customer_id / product_id. Avg Revenue per Invoice = revenue ÷ distinct invoices (valid because an invoice belongs to one customer). Days to ship = ship_date − order_date, per invoice.
+
+## Validation performed
+The dashboard's own `filterRows`/`agg` code was extracted and run in Node against pandas: totals, distinct counts, a combined date+category+segment filter (revenue 287,610.16, cost 208,378, 56 invoices, 48 customers, 393 lines), both boundary dates (inclusive), an empty result, and average days to ship (3.755) all matched exactly. **Not yet tested:** visual rendering in a browser, mobile/tablet layout, and chart interactions. Please open the page and review these yourself.
+
+## Known limitations
+- **Only ~3 weeks of data**: no year-over-year, no reliable period-over-period, no seasonality. Weekly view marks partial weeks (*).
+- **Segment varies within a customer (287 customers) and within an invoice (524)**, so it is a line-level attribute, not a customer attribute. The segment filter filters lines. Its business meaning (segA–segD) should be confirmed.
+- 2 customer names map to 2 IDs each; 29 product names map to 2 IDs each. The dashboard keys on IDs and shows "#ID" for ambiguous product names. Whether these are true duplicates needs a business answer.
+- unit_price varies 1.2–1.7× within a product_id (cost doesn't); no price history exists to explain it.
+- Large single lines exist (max 767 units, $58k); 131 lines exceed 100 units. They are kept as-is.
+- No promised/expected ship date, so nothing is called "late".
+
+## Future improvements
+Export filtered tables to CSV; more history for trends; customer/product master data to resolve ID/name conflicts; React/TypeScript port with unit tests; Project 1 pipeline output feeding the dashboard automatically.
+
+
 ### Dashboard sections
 
 - **Overview** — revenue, cost, gross profit, gross margin, invoice/customer/product counts, units sold, and category performance.
@@ -49,21 +81,6 @@ These metrics describe the dataset included with this prototype; they should not
 - Chart.js 4.4.1, loaded from a CDN
 
 This is a standalone HTML prototype. It does not require a framework, build process, or package installation. A modern browser and an internet connection for the Chart.js CDN dependency are required.
-
-## Run locally
-
-1. Clone or download this repository.
-2. Open `index.html` in a modern web browser.
-3. Use the dashboard navigation and available filters to explore the data.
-
-For example, using Git:
-
-```bash
-git clone https://github.com/<your-username>/b2b-sales-intelligence-dashboard.git
-cd b2b-sales-intelligence-dashboard
-```
-
-Replace `<your-username>` with the GitHub account that owns the repository, then open `index.html` in your browser.
 
 ## Metric definitions
 
