@@ -1,5 +1,6 @@
 # B2B Sales Intelligence Dashboard
- [GitHub Profile](https://github.com/INNOCENT256-UG) | 📊 [Portfolio](https://github.com/INNOCENT256-UG?tab=repositories)
+ [GitHub Profile](https://github.com/INNOCENT256-UG)      |                                                     📊 [Portfolio](https://github.com/INNOCENT256-UG?tab=repositories)
+ 
 A business intelligence dashboard built from cleaned B2B invoice data to help stakeholders understand revenue, cost, gross profit, margin, customer contribution, product performance, and fulfillment efficiency.
 1. Overview
  ![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
