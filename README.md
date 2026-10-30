@@ -46,8 +46,8 @@ The dashboard contains five main views:
 - total revenue, cost, gross profit, and margin
 -  invoice, customer, and product counts
 - category-level performance summary
-![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
-   -
+  
+ ![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
 
 2. Sales Performance
 - daily and weekly performance trends
