@@ -1,22 +1,12 @@
 # B2B Sales Intelligence Dashboard
-
 A business intelligence dashboard built from cleaned B2B invoice data to help stakeholders understand revenue, cost, gross profit, margin, customer contribution, product performance, and fulfillment efficiency.
-
-## Overview
-
-## Dashboard sections
-
-The dashboard contains five main views:
-
 ## 1. Overview
-
+ ![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
  headline KPIs
 - total revenue, cost, gross profit, and margin
 -  invoice, customer, and product counts
 - category-level performance summary
   
- ![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
-
 ## 2. Sales Performance
 
 - daily and weekly performance trends
@@ -48,7 +38,6 @@ The dashboard contains five main views:
    - shipping distribution by day count
      
  ![REPORTS/Image_Overview](REPORTS/Image_Overview/Orders%20and%20Shipping.png)
-
 
 This project turns raw transactional invoice data into an executive-ready sales intelligence dashboard. Instead of forcing business users to inspect rows of data manually, it summarizes the numbers into clear KPIs and visual insights that answer the questions leaders actually care about.
 
@@ -204,10 +193,42 @@ This repo demonstrates:
 
 It is a strong example of a data-driven business project that blends analytical thinking with dashboard design and stakeholder communication.
 
-## License
+## 👤 Author
 
-No license is currently specified for this repository. Please review the project and data rights before reusing or redistributing any files.
+**Innocent Watsala**
+🔗 [GitHub Profile](https://github.com/INNOCENT256-UG) | 📊 [Portfolio](https://github.com/INNOCENT256-UG?tab=repositories)
+
+- 🌍 Based in United Arab Emirates
+- 📊 Data Analyst specializing in Excel, SQL, and Python
+- 🎯 Focused on data cleaning, EDA, and business intelligence
+- 💼 Career Goal: Business Analyst — bridging data and strategy
+
+### Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR-LINKEDIN-HERE)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:watsala.digital@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/INNOCENT256-UG)
 
 ---
+
+This project demonstrates:
+- Advanced data analysis capabilities
+- Machine learning expertise
+- Production-ready code practices
+- Clear communication of insights
+- Professional documentation
+
+---
+
+## 📄 License
+
+This project is open source and available for educational purposes.
+
+---
+
+## 📞 Contact
+
+For questions or collaboration opportunities, please reach out.
++256740446239(Whatspp)
 
 This repository is a practical example of how raw transaction data can be turned into a clear, decision-support business dashboard. It is designed to show analytical rigor, business understanding, and stakeholder-friendly reporting in a way that is easy to present in a portfolio, interview, or hiring review.
