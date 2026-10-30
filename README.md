@@ -42,7 +42,7 @@ This project is especially relevant for roles in:
 The dashboard contains five main views:
 
 1. Overview
-![REPORTS/Image_Overview](REPORTS/Image_Overview/Customers.png)
+![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
    - headline KPIs
    - total revenue, cost, gross profit, and margin
    - invoice, customer, and product counts
@@ -52,18 +52,19 @@ The dashboard contains five main views:
    - daily and weekly performance trends
    - revenue, cost, and gross profit over time
    - gross margin analysis by period
-
+     *********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 2. Customers
-   - top customers by revenue and gross profit
-   - customer contribution analysis
+![REPORTS/Image_Overview](REPORTS/Image_Overview/Customers.png)
+  - top customers by revenue and gross profit
+  - customer contribution analysis
    - profitability comparison across customer accounts
 
-3. Products
+4. Products
    - product and category contribution analysis
    - top-performing products by revenue and gross profit
    - product mix insights
 
-4. Orders & Shipping
+5. Orders & Shipping
    - order date vs. ship date analysis
    - invoice-level shipping duration
    - shipping distribution by day count
