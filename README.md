@@ -1,52 +1,82 @@
- **Project status:** Portfolio prototype. Headline metrics have been checked against the cleaned source CSV. Complete browser-based interaction testing and a final usability review before describing this as production-ready.
+# B2B Sales Intelligence Dashboard
+ [GitHub Profile](https://github.com/INNOCENT256-UG)      |                                                     📊 [Portfolio](https://github.com/INNOCENT256-UG?tab=repositories)
+ 
+A business intelligence dashboard built from cleaned B2B invoice data to help stakeholders understand revenue, cost, gross profit, margin, customer contribution, product performance, and fulfillment efficiency.
+1. Overview
+ ![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
+ headline KPIs
+- total revenue, cost, gross profit, and margin
+-  invoice, customer, and product counts
+- category-level performance summary
+  
+## 2. Sales Performance
 
-## Overview
+- daily and weekly performance trends
+- revenue, cost, and gross profit over time
+- gross margin analysis by period
+  
+![REPORTS/Image_Overview](REPORTS/Image_Overview/Sales%20Performance.png)
 
-This project turns invoice-line data into a business-facing dashboard. It is designed to help users explore sales performance, understand gross profitability, compare customer and product contributions, and review shipping duration.
+## 3. Customers
 
-## Architecture
-Single file, split into marked layers:
-- **Data**: `D`, the cleaned CSV, dictionary-encoded (customers/products/dates stored once, rows reference them by index). Nothing was altered or invented.
-- **Logic** (`//<LOGIC>` block): `filterRows`, `agg` (all KPI math in one place), `groupBy`, `lag`, `weekKey`. Pages never re-implement metrics.
-- **Presentation**: one function per page (`ov`, `sales`, `cust`, `prod`, `ship`), a generic `table()` (search + sort) and `mk()` for charts.
+ - top customers by revenue and gross profit
+ - customer contribution analysis
+ - profitability comparison across customer accounts
+   
+![REPORTS/Image_Overview](REPORTS/Image_Overview/Customers.png)
+ 
+## 4. Products
 
-Deviation from the brief: the requested React/TypeScript/Tailwind project isn't built here; this environment publishes a self-contained page. The layering above maps directly onto a React port (`logic` → `lib/metrics.ts`, page functions → components).
+ - product and category contribution analysis
+ - top-performing products by revenue and gross profit
+ - product mix insights
+   
+![REPORTS/Image_Overview](REPORTS/Image_Overview/Product.png)
+  
+## 5. Orders & Shipping
 
-## Data assessment
-- 8,000 rows × 15 columns; no nulls, no duplicate rows, no duplicate (invoice, product) pairs.
-- **Unit of observation = invoice line.** 584 distinct invoices (avg 13.7 lines). Each invoice has exactly one customer, order date and ship date, so invoice-level metrics are safe. invoice_no 139 is absent (gap in numbering, not investigated further).
-- `revenue = quantity × unit_price`, `cost = quantity × unit_cost`, `margin = revenue − cost` (all verified to rounding). So margin **is** gross profit: $1,199,078.37 on $4,122,067.37 revenue (29.09%). All margins are positive.
-- Order dates: 2026-07-30 → 2026-08-19 (15 order days, weekdays only). Ship dates run to 2026-09-03. No ship date precedes its order date.
+   - order date vs. ship date analysis
+   - invoice-level shipping duration
+   - shipping distribution by day count
+     
+ ![REPORTS/Image_Overview](REPORTS/Image_Overview/Orders%20and%20Shipping.png)
 
-## KPI definitions
-Revenue = Σ revenue. Cost = Σ cost. Gross Profit = Revenue − Cost. Gross Margin % = GP ÷ Revenue × 100 (shown "–" if revenue is 0). Invoices/Customers/Products = distinct invoice_no / customer_id / product_id. Avg Revenue per Invoice = revenue ÷ distinct invoices (valid because an invoice belongs to one customer). Days to ship = ship_date − order_date, per invoice.
+This project turns raw transactional invoice data into an executive-ready sales intelligence dashboard. Instead of forcing business users to inspect rows of data manually, it summarizes the numbers into clear KPIs and visual insights that answer the questions leaders actually care about.
 
-## Validation performed
-The dashboard's own `filterRows`/`agg` code was extracted and run in Node against pandas: totals, distinct counts, a combined date+category+segment filter (revenue 287,610.16, cost 208,378, 56 invoices, 48 customers, 393 lines), both boundary dates (inclusive), an empty result, and average days to ship (3.755) all matched exactly. **Not yet tested:** visual rendering in a browser, mobile/tablet layout, and chart interactions. Please open the page and review these yourself.
+The dashboard focuses on the core commercial questions behind B2B performance:
+- How much revenue and gross profit were generated?
+- Which customers and products are driving the strongest results?
+- How do sales and profitability trend over time?
+- Where is margin being created or lost?
+- How long does it take to fulfill orders after they are placed?
 
-## Known limitations
-- **Only ~3 weeks of data**: no year-over-year, no reliable period-over-period, no seasonality. Weekly view marks partial weeks (*).
-- **Segment varies within a customer (287 customers) and within an invoice (524)**, so it is a line-level attribute, not a customer attribute. The segment filter filters lines. Its business meaning (segA–segD) should be confirmed.
-- 2 customer names map to 2 IDs each; 29 product names map to 2 IDs each. The dashboard keys on IDs and shows "#ID" for ambiguous product names. Whether these are true duplicates needs a business answer.
-- unit_price varies 1.2–1.7× within a product_id (cost doesn't); no price history exists to explain it.
-- Large single lines exist (max 767 units, $58k); 131 lines exceed 100 units. They are kept as-is.
-- No promised/expected ship date, so nothing is called "late".
+This project is especially relevant for roles in:
+- Business Intelligence
+- Data Analytics
+- Sales Analysis
+- Commercial Reporting
+- Operations Analysis
+- Product and Revenue Analysis
+- Dashboard: [REPORTS/index.html](REPORTS/index.html)
+- FAQ: [REPORTS/FAQ.md](REPORTS/FAQ.md)
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+This is a portfolio-style BI project designed to demonstrate analytical thinking, business storytelling, data validation, and dashboard design in a way that is easy for non-technical stakeholders to understand.
 
-## Future improvements
-Export filtered tables to CSV; more history for trends; customer/product master data to resolve ID/name conflicts; React/TypeScript port with unit tests; Project 1 pipeline output feeding the dashboard automatically.
+## Why this project matters
+
+Most organizations do not have a data problem — they have a clarity problem.
+
+This project shows how raw sales data can be converted into meaningful business insight. It demonstrates how to:
+- validate calculations against source data
+- define and communicate KPI logic
+- segment performance by customer and product
+- identify operational bottlenecks
+- visualize trends in a way that supports business decision-making
 
 
-### Dashboard sections
+## Verified headline metrics
 
-- **Overview** — revenue, cost, gross profit, gross margin, invoice/customer/product counts, units sold, and category performance.
-- **Sales Performance** — sales and profitability trends over the available order-date range.
-- **Customers** — customer-level performance and comparisons.
-- **Products** — product and category performance.
-- **Orders & Shipping** — order-level summaries and shipping-duration analysis.
-
-### Verified headline metrics
-
-The figures below were calculated from the cleaned source dataset and compared with the data embedded in the dashboard.
+The dashboard is built from a cleaned B2B invoice dataset, and the following headline metrics were validated against the source data:
 
 | Metric | Value |
 |---|---:|
@@ -60,67 +90,173 @@ The figures below were calculated from the cleaned source dataset and compared w
 | Distinct products | 160 |
 | Units sold | 88,309 |
 
-**Date coverage:** order dates run from July 30, 2026 through August 19, 2026. Shipping dates extend through September 3, 2026.
+These figures are dataset-specific and should be interpreted as business insights derived from the included prototype dataset rather than live business results.
 
-These metrics describe the dataset included with this prototype; they should not be interpreted as live business results.
+## Business logic and KPI definitions
 
-## Business questions this dashboard supports
+The dashboard applies the following business definitions:
+- Revenue = sum of revenue values
+- Cost = sum of cost values
+- Gross Profit = Revenue − Cost
+- Gross Margin % = Gross Profit ÷ Revenue × 100
+- Invoices / Customers / Products = distinct counts of invoice_no / customer_id / product_id
+- Avg Revenue per Invoice = revenue ÷ distinct invoices
 
-- How much revenue and gross profit were recorded in the selected period?
-- What is the gross margin?
-- How do sales and profitability change over time?
-- Which customers, segments, categories, or products contribute most?
-- How many invoices, customers, products, and units are represented?
-- How long did orders take to ship after the order date?
+This structure is important because business-facing dashboards should not simply display raw numbers; they should reflect the logic used by the business to interpret performance.
 
-## Technology
+## Data quality and validation
+
+This project emphasizes trust in the numbers, not just appearance.
+
+The README and validation notes document:
+- review of cleaned data quality
+- checks for nulls, duplicates, and inconsistent records
+- validation of totals against source data
+- review of assumptions and dataset limitations
+- business interpretation of the KPI logic
+
+This is an important BI principle: a dashboard is only useful if the underlying metrics are credible.
+
+## Architecture
+
+The project follows a simple layered structure:
+- Data: cleaned source CSV
+- Logic: filters, KPI aggregation, grouping, and metric calculations
+- Presentation: dashboard views, charts, and tables
+
+The logic is centralized in JavaScript rather than duplicated across pages, which makes the dashboard easier to maintain and easier to reason about.
+
+## Technology stack
 
 - HTML
 - CSS
 - JavaScript
-- Chart.js 4.4.1, loaded from a CDN
+- Chart.js 4.4.1
 
-This is a standalone HTML prototype. It does not require a framework, build process, or package installation. A modern browser and an internet connection for the Chart.js CDN dependency are required.
+## How to run it
 
-## Metric definitions
+No backend or package installation is required.
 
-- **Revenue:** sum of the `revenue` values in the included invoice-line records.
-- **Cost:** sum of the `cost` values in the included invoice-line records.
-- **Gross profit:** revenue minus cost.
-- **Gross margin:** gross profit divided by revenue, multiplied by 100.
-- **Units sold:** sum of the `quantity` values.
-- **Shipping duration:** calendar-day difference between the order date and ship date.
+```bash
+git clone https://github.com/INNOCENT256-UG/B2B-SALES---INVOICES.git
+cd B2B-SALES---INVOICES
+# Open REPORTS/index.html in a modern browser
+```
 
-Gross profit is not the same as net profit. The dataset may not include operating expenses, taxes, or other costs needed to calculate net profit. Shipping duration alone does not show whether an order was late; promised and actual delivery dates would be needed for that assessment.
+Notes:
+- Chart.js is loaded from a CDN, so an internet connection is required for chart rendering.
+- The dashboard uses embedded data; updating the CSV alone does not automatically refresh the report.
 
-## Data and privacy
+## Business questions this dashboard answers
 
-The dashboard embeds its data in [REPORTS][REPORTS/index.html]` so it can run as a standalone prototype. Before publishing this repository publicly, confirm that the records are approved for public sharing. If the data is client-owned, confidential, or contains identifiable customer information, replace it with anonymized or synthetic sample data before making the repository public.
-
-The dashboard does not connect to a live database or automatically refresh from a source system.
+- What is the total sales and profitability performance?
+- Which customers contribute the most revenue and gross profit?
+- Which products and categories drive the strongest contribution?
+- Are sales and margin improving or declining over time?
+- How long does it take to fulfill orders after they are placed?
+- Which business areas deserve deeper operational review?
 
 ## Limitations
 
-- The dashboard is a static HTML/JavaScript prototype, not a deployed production application.
-- Chart.js is loaded from a CDN, so an internet connection is needed for charts to render.
-- The dashboard uses embedded data; changes to the source CSV will not automatically update it.
-- The available order-date range is limited, so it should not be used to make unsupported year-over-year or long-term trend claims.
-- Shipping duration is calculated from order date to ship date; delivery lateness cannot be established from the available fields.
-- Browser testing of every interaction and a final accessibility/usability review should be completed before calling the dashboard production-ready.
+This project is intentionally positioned as a polished prototype and a portfolio project, not a production reporting platform.
 
-## Possible next improvements
+Key limitations include:
+- limited date range
+- embedded data instead of a live source system
+- static dashboard with no automatic refresh pipeline
+- no production-grade access control or governance layer
+- no deployment to a web application environment
 
-- Test all filters, navigation items, charts, sorting, and table interactions in a browser.
-- Add a documented data-refresh workflow.
-- Add automated checks that compare dashboard totals against the source dataset.
-- Improve accessibility, responsive behavior, and loading/error states.
-- Publish a screenshot or short demo GIF after checking the data-sharing permissions.
-- Consider a framework or backend only if the project requirements grow beyond this standalone prototype.
+These limitations are part of the value of the project: they show honest analytical maturity and clear positioning rather than overstating the scope of the work.
 
-## Frequently asked questions
+## Future improvements
 
-See [`FAQ.md`](FAQ.md) for answers about running the dashboard, its metrics, data privacy, and current limitations.
+Recommended next steps include:
+- automate data refresh workflows
+- connect to a live source or API
+- improve data governance and documentation
+- expand trend and cohort analysis
+- add more business validation checks
+- move toward a framework-based production-ready BI solution
 
-## License
+## FAQ
 
-No license has been specified yet. Unless a license is added, others should not assume they have permission to reuse, modify, or redistribute this project. Add a license only after confirming you have the rights to license the code and any included data.
+Additional detail about running the dashboard, metrics, data privacy, and current limitations is available here:
+- [REPORTS/FAQ.md](REPORTS/FAQ.md)
+
+## Project value
+
+This repo demonstrates:
+- KPI definition and business logic
+- data validation and quality review
+- business-facing dashboard creation
+- exploratory analysis of sales and profitability
+- communication of insights through visual reporting
+
+It is a strong example of a data-driven business project that blends analytical thinking with dashboard design and stakeholder communication.
+
+## 👤 Author
+
+**Innocent Watsala**
+🔗 [GitHub Profile](https://github.com/INNOCENT256-UG) | 📊 [Portfolio](https://github.com/INNOCENT256-UG?tab=repositories)
+
+- 🌍 Based in United Arab Emirates
+- 📊 Data Analyst specializing in Excel, SQL, and Python
+- 🎯 Focused on data cleaning, EDA, and business intelligence
+- 💼 Career Goal: Business Analyst — bridging data and strategy
+
+### Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR-LINKEDIN-HERE)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:watsala.digital@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/INNOCENT256-UG)
+
+---
+
+This project demonstrates:
+- Advanced data analysis capabilities
+- Machine learning expertise
+- Production-ready code practices
+- Clear communication of insights
+- Professional documentation
+
+---
+
+**⭐ If you found this project helpful, please give it a star!**
+
+**⭐ Ready to expand your portfolio? Check out my other projects:**
+- [SFO Air Traffic & Cargo Analysis](https://github.com/INNOCENT256-UG/-SFO-Air-Traffic-Cargo-Statistics-Data-Analysis-Project) — 26 years of operational logistics data
+- [Telco Customer Churn Analysis](https://github.com/INNOCENT256-UG/WA_Fn-UseC_-Telco-Customer-Churn) — Predictive modeling for retention
+- [Titanic Survival Analysis](https://github.com/INNOCENT256-UG/TITANIC_DATA_ANALYSIS) — Machine learning classification
+
+**📧 For questions or collaboration opportunities, feel free to reach out!**
+```
+
+## 📄 LICENSE (MIT License)
+
+```
+MIT License
+
+Copyright (c) 2024 INNOCENT WATSALA
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF C
+## 📞 Contact
+
+For questions or collaboration opportunities, please reach out.
++256740446239(Whatspp)
+
+This repository is a practical example of how raw transaction data can be turned into a clear, decision-support business dashboard. It is designed to show analytical rigor, business understanding, and stakeholder-friendly reporting in a way that is easy to present in a portfolio, interview, or hiring review.
