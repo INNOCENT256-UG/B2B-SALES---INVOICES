@@ -1,6 +1,6 @@
 # B2B Sales Intelligence Dashboard
 A business intelligence dashboard built from cleaned B2B invoice data to help stakeholders understand revenue, cost, gross profit, margin, customer contribution, product performance, and fulfillment efficiency.
-## 1. Overview
+1. Overview
  ![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
  headline KPIs
 - total revenue, cost, gross profit, and margin
