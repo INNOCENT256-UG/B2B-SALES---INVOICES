@@ -49,29 +49,33 @@ The dashboard contains five main views:
 ![REPORTS/Image_Overview](REPORTS/Image_Overview/Overview.png)
    -
 
-1. Sales Performance
+2. Sales Performance
 - daily and weekly performance trends
 - revenue, cost, and gross profit over time
 - gross margin analysis by period
+  
 ![REPORTS/Image_Overview](REPORTS/Image_Overview/Sales%20Performance.png)
 
-*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 3. Customers
  - top customers by revenue and gross profit
  - customer contribution analysis
  - profitability comparison across customer accounts
+   
 ![REPORTS/Image_Overview](REPORTS/Image_Overview/Customers.png)
  
-5. Products
+4. Products
  - product and category contribution analysis
  - top-performing products by revenue and gross profit
  - product mix insights
+   
 ![REPORTS/Image_Overview](REPORTS/Image_Overview/Product.png)
   
-6. Orders & Shipping
+5. Orders & Shipping
    - order date vs. ship date analysis
    - invoice-level shipping duration
    - shipping distribution by day count
+     
+ ![REPORTS/Image_Overview](REPORTS/Image_Overview/Orders%20and%20Shipping.png)
 
 ## Verified headline metrics
 
