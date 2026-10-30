@@ -42,8 +42,7 @@ This project is especially relevant for roles in:
 The dashboard contains five main views:
 
 1. Overview
-
-![REPORTS/Image_Overview](Graph/Churn%20Vs%20No%20Churn%20Monthly%20Charges.png)
+![REPORTS/Image_Overview](REPORTS/Image_Overview/Customers.png)
    - headline KPIs
    - total revenue, cost, gross profit, and margin
    - invoice, customer, and product counts
