@@ -2,9 +2,6 @@
 
 A business intelligence dashboard built from cleaned B2B invoice data to help stakeholders understand revenue, cost, gross profit, margin, customer contribution, product performance, and fulfillment efficiency.
 
-- Dashboard: [REPORTS/index.html](REPORTS/index.html)
-- FAQ: [REPORTS/FAQ.md](REPORTS/FAQ.md)
-
 ## Overview
 
 This project turns raw transactional invoice data into an executive-ready sales intelligence dashboard. Instead of forcing business users to inspect rows of data manually, it summarizes the numbers into clear KPIs and visual insights that answer the questions leaders actually care about.
@@ -15,19 +12,6 @@ The dashboard focuses on the core commercial questions behind B2B performance:
 - How do sales and profitability trend over time?
 - Where is margin being created or lost?
 - How long does it take to fulfill orders after they are placed?
-********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-This is a portfolio-style BI project designed to demonstrate analytical thinking, business storytelling, data validation, and dashboard design in a way that is easy for non-technical stakeholders to understand.
-
-## Why this project matters
-
-Most organizations do not have a data problem — they have a clarity problem.
-
-This project shows how raw sales data can be converted into meaningful business insight. It demonstrates how to:
-- validate calculations against source data
-- define and communicate KPI logic
-- segment performance by customer and product
-- identify operational bottlenecks
-- visualize trends in a way that supports business decision-making
 
 This project is especially relevant for roles in:
 - Business Intelligence
@@ -81,6 +65,26 @@ The dashboard contains five main views:
    - shipping distribution by day count
      
  ![REPORTS/Image_Overview](REPORTS/Image_Overview/Orders%20and%20Shipping.png)
+
+
+- Dashboard: [REPORTS/index.html](REPORTS/index.html)
+- FAQ: [REPORTS/FAQ.md](REPORTS/FAQ.md)
+
+
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+This is a portfolio-style BI project designed to demonstrate analytical thinking, business storytelling, data validation, and dashboard design in a way that is easy for non-technical stakeholders to understand.
+
+## Why this project matters
+
+Most organizations do not have a data problem — they have a clarity problem.
+
+This project shows how raw sales data can be converted into meaningful business insight. It demonstrates how to:
+- validate calculations against source data
+- define and communicate KPI logic
+- segment performance by customer and product
+- identify operational bottlenecks
+- visualize trends in a way that supports business decision-making
+
 
 ## Verified headline metrics
 
