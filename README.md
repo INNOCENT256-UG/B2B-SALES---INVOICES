@@ -4,23 +4,6 @@ A business intelligence dashboard built from cleaned B2B invoice data to help st
 
 ## Overview
 
-This project turns raw transactional invoice data into an executive-ready sales intelligence dashboard. Instead of forcing business users to inspect rows of data manually, it summarizes the numbers into clear KPIs and visual insights that answer the questions leaders actually care about.
-
-The dashboard focuses on the core commercial questions behind B2B performance:
-- How much revenue and gross profit were generated?
-- Which customers and products are driving the strongest results?
-- How do sales and profitability trend over time?
-- Where is margin being created or lost?
-- How long does it take to fulfill orders after they are placed?
-
-This project is especially relevant for roles in:
-- Business Intelligence
-- Data Analytics
-- Sales Analysis
-- Commercial Reporting
-- Operations Analysis
-- Product and Revenue Analysis
-
 ## Dashboard sections
 
 The dashboard contains five main views:
@@ -67,10 +50,24 @@ The dashboard contains five main views:
  ![REPORTS/Image_Overview](REPORTS/Image_Overview/Orders%20and%20Shipping.png)
 
 
+This project turns raw transactional invoice data into an executive-ready sales intelligence dashboard. Instead of forcing business users to inspect rows of data manually, it summarizes the numbers into clear KPIs and visual insights that answer the questions leaders actually care about.
+
+The dashboard focuses on the core commercial questions behind B2B performance:
+- How much revenue and gross profit were generated?
+- Which customers and products are driving the strongest results?
+- How do sales and profitability trend over time?
+- Where is margin being created or lost?
+- How long does it take to fulfill orders after they are placed?
+
+This project is especially relevant for roles in:
+- Business Intelligence
+- Data Analytics
+- Sales Analysis
+- Commercial Reporting
+- Operations Analysis
+- Product and Revenue Analysis
 - Dashboard: [REPORTS/index.html](REPORTS/index.html)
 - FAQ: [REPORTS/FAQ.md](REPORTS/FAQ.md)
-
-
 ********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 This is a portfolio-style BI project designed to demonstrate analytical thinking, business storytelling, data validation, and dashboard design in a way that is easy for non-technical stakeholders to understand.
 
