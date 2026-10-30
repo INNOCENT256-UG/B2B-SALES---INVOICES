@@ -43,7 +43,7 @@ The dashboard contains five main views:
 
 1. Overview
 
-![Charges vs Churn](Graph/Churn%20Vs%20No%20Churn%20Monthly%20Charges.png)
+![REPORTS/Image_Overview](Graph/Churn%20Vs%20No%20Churn%20Monthly%20Charges.png)
    - headline KPIs
    - total revenue, cost, gross profit, and margin
    - invoice, customer, and product counts
