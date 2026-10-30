@@ -15,7 +15,7 @@ The dashboard focuses on the core commercial questions behind B2B performance:
 - How do sales and profitability trend over time?
 - Where is margin being created or lost?
 - How long does it take to fulfill orders after they are placed?
-
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 This is a portfolio-style BI project designed to demonstrate analytical thinking, business storytelling, data validation, and dashboard design in a way that is easy for non-technical stakeholders to understand.
 
 ## Why this project matters
@@ -49,11 +49,12 @@ The dashboard contains five main views:
    - category-level performance summary
 
 1. Sales Performance
+![REPORTS/Image_Overview](REPORTS/Image_Overview/Sales%20Performance.png)
    - daily and weekly performance trends
    - revenue, cost, and gross profit over time
    - gross margin analysis by period
      *********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-2. Customers
+3. Customers
 ![REPORTS/Image_Overview](REPORTS/Image_Overview/Customers.png)
   - top customers by revenue and gross profit
   - customer contribution analysis
